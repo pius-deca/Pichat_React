@@ -6,3 +6,7 @@
 .post-item .form-group .comment{
   height: 50px;
 }
+
+.user-dashboard .row .form-control{
+  height: 50px;
+}

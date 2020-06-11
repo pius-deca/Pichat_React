@@ -10,20 +10,13 @@ class Login extends Component {
     super()
     this.state ={
         "identifier":"",
-        "password": "",
-        errors:{}
+        "password": ""
     }
 
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
   
-  componentWillReceiveProps(nextProps){ 
-    if(nextProps.errors){
-      this.setState({ errors: nextProps.errors })
-    }
-  }
-
   onChange(e){
     this.setState({[e.target.name]: e.target.value})
   }
@@ -38,7 +31,11 @@ class Login extends Component {
   } 
 
   render() {
-    const { errors } = this.state 
+    const { errors } = this.props.errors
+
+    const signup = () => { 
+      window.location.href = "/account/sign_up"
+    }  
     
     return (
       <div className="login">
@@ -52,14 +49,14 @@ class Login extends Component {
                   <input
                     type="text"
                     className={classnames ("form-control form-control-lg", {
-                      "is-invalid": errors.data
+                      "is-invalid": errors
                     })} 
                     placeholder="email or username"
                     name="identifier"
                     value={this.state.identifier}
                     onChange={this.onChange}
                   />
-                  {errors.data && (
+                  {errors && (
                     <div className="invalid-feedback text-left">{errors.data.identifier}</div>
                   )}
                 </div>
@@ -67,14 +64,14 @@ class Login extends Component {
                   <input
                     type="password"
                     className={classnames ("form-control form-control-lg", {
-                      "is-invalid": errors.data
+                      "is-invalid": errors
                     })} 
                     placeholder="password"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChange}
                   />  
-                  {errors.data && (
+                  {errors && (
                     <div className="invalid-feedback text-left">{errors.data.password}</div>
                   )}
                 </div>
@@ -84,7 +81,7 @@ class Login extends Component {
                       className="btn btn-lg btn-block btn-primary mt-4"
                   />
                   <p className="mt-4 text-center">
-                    Don't have an account <Link to="/account/sign_up"> Sign up</Link> 
+                    Don't have an account <Link to="/account/sign_up" onClick={signup}> Sign up</Link> 
                   </p>
                 </div>
               </form>

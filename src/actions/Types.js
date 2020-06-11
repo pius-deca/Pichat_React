@@ -1,5 +1,6 @@
 export const GET_ERRORS = "GET_ERRORS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const IS_ACTIVE = "IS_ACTIVE";
 export const GET_POST = "GET_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const GET_ALL_USER_POSTS = "GET_ALL_USER_POSTS";
