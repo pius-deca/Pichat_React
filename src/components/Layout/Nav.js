@@ -6,23 +6,35 @@ import { connect } from 'react-redux';
 
 class Nav extends Component{  
   render(){ 
+    const{ validToken, user } = this.props.security  
+
     const logout= () => {      
       this.props.logout()
       window.location.href ="/"
     } 
 
-    const{ validToken, user } = this.props.security  
+    const profileClick = () => { 
+      window.location.href = `/${user.username}`
+    }
+
+    const signup = () => { 
+      window.location.href = "/account/sign_up"
+    }
+
+    const login = () => { 
+      window.location.href = "/account/login"
+    }
   
     const guestUser = (
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/account/sign_up">
+            <Link className="nav-link" to="/account/sign_up" onClick={signup}>
               Sign Up
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/account/login">
+            <Link className="nav-link" to="/account/login" onClick={login}>
               Login
             </Link>
           </li>
@@ -34,7 +46,7 @@ class Nav extends Component{
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item"> 
-            <Link className="nav-link" to={`/${user.username}`}>
+            <Link className="nav-link" to={`/${user.username}`} onClick={profileClick}>
               <i className="fa fa-user-circle mr-1" />@{user.username}
             </Link> 
           </li>
@@ -68,10 +80,19 @@ class Nav extends Component{
       headerLinks = guestUser
     }
 
+    const brandClick = () => { 
+      if (user.isActive) {
+        brandRoute = "/"
+      }else{        
+        brandRoute = `/${user.username}`
+        window.location.href = `/${user.username}`
+      }  
+    }
+
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-secondary mb-4">
         <div className="container">
-          <Link className="navbar-brand" to={brandRoute}>
+          <Link className="navbar-brand" to={brandRoute} onClick={brandClick}>
             PiChat
           </Link>
           { headerLinks }                                

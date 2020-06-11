@@ -5,7 +5,7 @@ import setToken from '../securityUtils/setToken';
 export const createNewUser = (newUser, history) => async dispatch =>{
   try {
     await axios.post("/auth/signup", newUser)
-    history.push("/login")
+    history.push("/account/login")
     dispatch({
       type:GET_ERRORS,
       payload:{}
@@ -13,7 +13,7 @@ export const createNewUser = (newUser, history) => async dispatch =>{
   } catch (error) {
     dispatch({
       type:GET_ERRORS,
-      payload:error.response.data
+      payload:error.response
     })        
   }
 }
@@ -41,8 +41,8 @@ export const logout = () => dispatch =>{
   localStorage.removeItem("userDetails")
   setToken(false)
   dispatch({
-      type:SET_CURRENT_USER,
-      payload:{}
+    type:SET_CURRENT_USER,
+    payload:{}
   })
 }
 

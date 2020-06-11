@@ -32,7 +32,6 @@ if (userDetails != null) {
     store.dispatch(logout())
     window.location.href = "/"
   }
-
 }
 
 function App() {  

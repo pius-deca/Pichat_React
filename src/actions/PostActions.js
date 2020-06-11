@@ -41,11 +41,11 @@ export const getAllPosts = () => async dispatch =>{
   }
 }
 
-export const getUserPosts = () => async dispatch =>{
+export const getUserPosts = (username) => async dispatch =>{
   try {    
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get("/post", {
+    const res = await axios.get(`/${username}/post`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization
@@ -59,11 +59,11 @@ export const getUserPosts = () => async dispatch =>{
   }
 }
 
-export const countUserPosts = () => async dispatch =>{
+export const countUserPosts = (username) => async dispatch =>{
   try {    
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get("/post/count", {
+    const res = await axios.get(`/post/${username}/count`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization

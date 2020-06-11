@@ -14,17 +14,10 @@ class Signup extends Component {
       "lastName":"",
       "email":"",
       "username":"",
-      "password":"",
-      errors:{} 
+      "password":""
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-  }
-
-  componentWillReceiveProps(nextProps){
-    if(nextProps.errors){
-      this.setState({ errors: nextProps.errors })
-    }
   }
 
   onChange(e){
@@ -44,7 +37,11 @@ class Signup extends Component {
   }
 
   render() {
-    const { errors } = this.state   
+    const { errors } = this.props.errors 
+
+    const login = () => { 
+      window.location.href = "/account/login"
+    }     
 
     return (
       <div className="signup">
@@ -59,22 +56,22 @@ class Signup extends Component {
                   <input 
                       type="text" 
                       className={classnames ("form-control form-control-lg", {
-                        "is-invalid": errors.firstName
+                        "is-invalid": errors
                       })} 
                       placeholder="firstname" 
                       name="firstName"
-                      value={this.state.fullName}
+                      value={this.state.firstName}
                       onChange={this.onChange}
                   />
                   {errors && (
-                    <div className="invalid-feedback text-left">{errors.firstName}</div>
+                    <div className="invalid-feedback text-left">{errors.data.firstName}</div>
                   )}
                 </div>
                 <div className="form-group">
                   <input 
                       type="text"                      
                       className={classnames ("form-control form-control-lg", {
-                        "is-invalid": errors.lastName
+                        "is-invalid": errors
                       })} 
                       placeholder="lastname" 
                       name="lastName"
@@ -82,14 +79,14 @@ class Signup extends Component {
                       onChange={this.onChange}
                   />
                   {errors && (
-                    <div className="invalid-feedback text-left">{errors.lastName}</div>
+                    <div className="invalid-feedback text-left">{errors.data.lastName}</div>
                   )}
                 </div>
                 <div className="form-group">
                   <input 
                       type="text" 
                       className={classnames ("form-control form-control-lg", {
-                        "is-invalid": errors.email
+                        "is-invalid": errors
                       })}   
                       placeholder="email" 
                       name="email"
@@ -97,14 +94,14 @@ class Signup extends Component {
                       onChange={this.onChange}
                     /> 
                     {errors && (
-                      <div className="invalid-feedback text-left">{errors.email}</div>
+                      <div className="invalid-feedback text-left">{errors.data.email}</div>
                     )} 
                 </div>
                 <div className="form-group">
                   <input 
                       type="text" 
                       className={classnames ("form-control form-control-lg", {
-                        "is-invalid": errors.username
+                        "is-invalid": errors
                       })} 
                       placeholder="username" 
                       name="username"
@@ -112,14 +109,14 @@ class Signup extends Component {
                       onChange={this.onChange}
                   />
                   {errors && (
-                    <div className="invalid-feedback text-left">{errors.username}</div>
+                    <div className="invalid-feedback text-left">{errors.data.username}</div>
                   )}
                 </div>
                 <div className="form-group">
                   <input 
                       type="password" 
                       className={classnames ("form-control form-control-lg", {
-                        "is-invalid": errors.password      
+                        "is-invalid": errors      
                       })} 
                       placeholder="password" 
                       name="password"
@@ -127,7 +124,7 @@ class Signup extends Component {
                       onChange={this.onChange}
                   />
                   {errors && (
-                    <div className="invalid-feedback text-left">{errors.password}</div>
+                    <div className="invalid-feedback text-left">{errors.data.password}</div>
                   )}
                 </div>
                 <div className="form-group">
@@ -136,7 +133,7 @@ class Signup extends Component {
                     className="btn btn-lg btn-block btn-primary mt-4"
                   />
                   <p className="mt-4 text-center">
-                    Have an account?<Link to="/account/login"> Log in </Link>               </p>
+                    Have an account?<Link to="/account/login" onClick={login}> Log in </Link>               </p>
                 </div>
               </form>
             </div>
