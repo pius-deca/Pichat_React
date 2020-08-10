@@ -1,12 +1,133 @@
-.user-post-item > .link > img{
-  width: 33%;
+.user-posts > .link > img {
+  width: 30%;
   height: 250px;
+  /* border-radius: 5%; */
+  /* transition: transform 1.2s ease; */
 }
 
-.post-item .form-group .comment{
+/* .user-posts > .link {
+  overflow: hidden;
+} */
+/* 
+.user-posts > .link:hover img {
+  transform: scale(1.1);
+} */
+
+.post-user-link {
+  width: 500px;
+}
+
+.post-user-link > .link-wrapper > .link > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.post-user-link > .link-wrapper > .link > p {
+  display: inline;
+}
+
+.post-item .form-group .comment {
   height: 50px;
 }
 
-.user-dashboard .row .form-control{
+.user-dashboard .row .form-control {
   height: 50px;
+}
+
+.avatar img {
+  height: 180px;
+  width: 170px;
+}
+
+.about-img {
+  height: 350px;
+  width: 350px;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: black;
+  display: inline-block;
+}
+
+.remove-pic {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: black;
+  display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: red;
+}
+
+.inputfile + label,
+.remove-pic {
+  cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.search-dropdown {
+  border: none;
+}
+
+/* mobile setup */
+.intl-tel-input {
+  display: table-cell;
+}
+.intl-tel-input .selected-flag {
+  z-index: 4;
+}
+.intl-tel-input .country-list {
+  z-index: 5;
+}
+.input-group .intl-tel-input .form-control {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+}
+
+@media only screen and (max-width: 766px) {
+  .footer-links > .link {
+    display: block;
+    padding: 10px;
+  }
+
+  .nav-link {
+    padding: 10px 0px !important;
+  }
+
+  .login .card,
+  .signup .card {
+    padding: 1rem !important;
+  }
 }

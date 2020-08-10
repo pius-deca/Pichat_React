@@ -6,7 +6,7 @@ import LikeReducer from './LikeReducer';
 import CommentReducer from './CommentReducer';
 import UserReducer from './UserReducer';
 import FollowReducer from './FollowReducer';
-import UserActiveReducer from './UserActiveReducer'
+import MessageRuducer from './MessageReducer';
 
 export default combineReducers({
   errors: ErrorReducer,
@@ -16,5 +16,5 @@ export default combineReducers({
   comment: CommentReducer,
   user: UserReducer,
   follow: FollowReducer,
-  isActive: UserActiveReducer
+  message: MessageRuducer
 }) 
