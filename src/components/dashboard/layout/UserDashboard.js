@@ -13,7 +13,11 @@ import {
   getUserPosts,
   countPosts,
 } from "../../../actions/PostActions";
-import { countFollowing, countFollowers } from "../../../actions/FollowActions";
+import {
+  countFollowing,
+  countFollowers,
+  checkFollowing,
+} from "../../../actions/FollowActions";
 import { UserPost } from "../post/UserPost";
 import { trackPromise } from "react-promise-tracker";
 import { createNotification } from "../../utils/Notifications";
@@ -84,6 +88,7 @@ class UserDashboard extends Component {
     this.props.searchUser(username);
     this.props.getUserPosts(username);
     this.props.countPosts(username);
+    this.props.checkFollowing(username);
     this.props.countFollowing(username);
     this.props.countFollowers(username);
     this.props.getProfilePic();
@@ -91,14 +96,16 @@ class UserDashboard extends Component {
 
   render() {
     const { user } = this.props.security;
-    const { searchedUser, userErrors } = this.props.user;
+    const { isActive, searchedUser, userErrors } = this.props.user;
     const { countUserPosts, userPosts } = this.props.post;
-    const { numOfFollowers, numOfFollowing } = this.props.follow;
+    const { numOfFollowers, numOfFollowing, isFollowing } = this.props.follow;
 
     const numOfPosts =
-      countUserPosts > 1 ? `${countUserPosts} posts` : `${countUserPosts} post`;
+      countUserPosts > 1 || countUserPosts === 0
+        ? `${countUserPosts} posts`
+        : `${countUserPosts} post`;
     const numFollowers =
-      numOfFollowers > 1
+      numOfFollowers > 1 || numOfFollowers === 0
         ? `${numOfFollowers} followers`
         : `${numOfFollowers} follower`;
 
@@ -213,13 +220,13 @@ class UserDashboard extends Component {
           <div className="py-2">
             <span className="pr-3">{numOfPosts}</span>
             <Link
-              className="btn btn-info"
+              className="btn btn-primary"
               to={`/${searchedUser.username}/followers`}
             >
               {numFollowers}
             </Link>
             <Link
-              className="btn btn-info"
+              className="btn btn-primary"
               to={`/${searchedUser.username}/following`}
             >
               {numOfFollowing} following
@@ -238,6 +245,80 @@ class UserDashboard extends Component {
 
     const userOfAccount = <div>{active}</div>;
 
+    const follow = (e) => {
+      console.log("request to follow sent...");
+    };
+
+    const unFollow = (e) => {
+      console.log("request to unfollow sent...");
+    };
+
+    const followAccount = (
+      <button
+        className="btn btn-info"
+        title="click to follow account"
+        onClick={follow}
+      >
+        Follow
+      </button>
+    );
+
+    const unFollowAccount = (
+      <button
+        className="btn btn-info"
+        title="click to unfollow account"
+        onClick={unFollow}
+      >
+        UnFollow
+      </button>
+    );
+
+    const processingReq = (
+      <div className="py-2">Request to follow {searchedUser.username} sent</div>
+    );
+
+    const canFollow = () => {
+      if (isActive) {
+        if (isFollowing === "Yes") {
+          return unFollowAccount;
+        } else if (isFollowing === "No") {
+          return followAccount;
+        } else if (isFollowing === "Requested") {
+          return processingReq;
+        }
+      } else {
+        return "";
+      }
+    };
+
+    const viewFollow = (
+      <div className="follow-link">
+        <Link
+          className="btn btn-primary"
+          title="click to see all accounts following you"
+          to={`/${searchedUser.username}/followers`}
+        >
+          {numFollowers}
+        </Link>
+        <Link
+          className="btn btn-primary"
+          title="click to see all accounts you are following"
+          to={`/${searchedUser.username}/following`}
+        >
+          {numOfFollowing} following
+        </Link>
+      </div>
+    );
+
+    const cantViewFollow = (
+      <div className="follow-link">
+        <button className="btn btn-info">{numFollowers}</button>
+        <button className="btn btn-info">{numOfFollowing} following</button>
+      </div>
+    );
+
+    const view = isActive ? viewFollow : cantViewFollow;
+
     const notUserOfAccount = (
       <div>
         <div className="text-center">
@@ -254,18 +335,8 @@ class UserDashboard extends Component {
           </h4>
           <div className="">
             <span className="pr-3">{numOfPosts}</span>
-            <Link
-              className="btn btn-info"
-              to={`/${searchedUser.username}/followers`}
-            >
-              {numFollowers}
-            </Link>
-            <Link
-              className="btn btn-info"
-              to={`/${searchedUser.username}/following`}
-            >
-              {numOfFollowing} following
-            </Link>
+            {view}
+            <div>{canFollow()}</div>
           </div>
         </div>
         <div>{posts}</div>
@@ -304,6 +375,7 @@ UserDashboard.propTypes = {
   countFollowing: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
+  follow: PropTypes.object.isRequired,
   message: PropTypes.object.isRequired,
 };
 
@@ -324,6 +396,7 @@ export default connect(mapStateToProps, {
   uploadPost,
   getUserPosts,
   countPosts,
+  checkFollowing,
   countFollowers,
   countFollowing,
 })(UserDashboard);

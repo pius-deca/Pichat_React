@@ -31,9 +31,11 @@ class Nav extends Component {
         <Link className="dropdown-item" to="/account/edit_details">
           Edit account details
         </Link>
+        <div className="dropdown-divider"></div>
         <Link className="dropdown-item" to="/account/password">
           Password
         </Link>
+        <div className="dropdown-divider"></div>
         <Link className="dropdown-item" to="/logout" onClick={signout}>
           Log out
         </Link>

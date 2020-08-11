@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Search } from "../dashboard/search/Search";
+import Search from "../dashboard/search/Search";
 import { search } from "../../actions/UserActions";
 
 class SearchBar extends Component {
@@ -27,39 +27,24 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { validToken, user } = this.props.security;
+    const { validToken } = this.props.security;
     const { allSearchedUsers } = this.props.user;
 
-    let allUsersSearchedFor;
-    allUsersSearchedFor = Search(allSearchedUsers);
-
     const dropdownForSearchedUser = (
-      <div className="dropdown-menu p-0 m-0" aria-labelledby="dropdownForUsers">
-        {allUsersSearchedFor}
+      <div className="users-display p-0 m-0 shadow">
+        <Search allSearchedUsers={allSearchedUsers} />
       </div>
     );
 
-    const noDropdown = (
-      <div
-        className="dropdown-menu p-0 m-0 search-dropdown"
-        aria-labelledby="dropdownForUsers"
-      ></div>
-    );
+    const noDropdown = <div className="users-display p-0 m-0"></div>;
 
     const dropdown =
       allSearchedUsers.length > 0 ? dropdownForSearchedUser : noDropdown;
 
     const searchBar = (
       <div className="row m-0 py-2">
-        <div className="dropdown nav-item col-md-6 col-sm-12 p-0">
-          <form
-            className="form-inline md-form m-0"
-            id="dropdownForUsers"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-            onKeyUp={this.onKeyUp}
-          >
+        <div className="nav-item col-md-6 col-sm-12 p-0">
+          <form className="form-inline md-form m-0" onKeyUp={this.onKeyUp}>
             <i className="fas fa-search black-text" aria-hidden="true"></i>
             <input
               autoComplete="off"
@@ -71,6 +56,14 @@ class SearchBar extends Component {
               value={this.state.search}
               onChange={this.onChange}
             />
+            <button
+              className="btn btn-danger m-0 ml-1 py-1 rounded"
+              onClick={() => {
+                this.setState({ search: "" });
+              }}
+            >
+              X
+            </button>
           </form>
           <div>{dropdown}</div>
         </div>

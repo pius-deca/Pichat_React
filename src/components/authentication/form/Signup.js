@@ -54,7 +54,7 @@ class Signup extends Component {
       <div className="signup">
         <div className="container">
           <div className="row py-5 px-3">
-            <div className="col-md-9 col-sm-12 m-auto card p-5">
+            <div className="col-lg-6 col-md-9 col-sm-12 m-auto card p-5">
               <h4 className="text-center black-text">
                 Sign up to see photos and videos from people all over the world.
               </h4>
@@ -158,15 +158,17 @@ class Signup extends Component {
                     </div>
                   )}
                 </div>
-                <div className="row d-flex justify-content-between">
-                  <div className="col-md-4 col-lg-4">
-                    <input
-                      type="submit"
-                      value="sign up"
-                      className="btn btn-lg btn-success btn-block p-3"
-                    />
+                <div className="">
+                  <div className="row d-flex justify-content-center">
+                    <div className="col-lg-6">
+                      <input
+                        type="submit"
+                        value="Create Account"
+                        className="btn btn-lg btn-success btn-block p-2"
+                      />
+                    </div>
                   </div>
-                  <div className="col-md-8 pt-3">
+                  <div className="text-center pt-3">
                     <p>
                       Have an account?
                       <Link
@@ -174,7 +176,7 @@ class Signup extends Component {
                         className="blue-text ml-1"
                         onClick={login}
                       >
-                        Log in
+                        Sign in
                       </Link>
                     </p>
                   </div>

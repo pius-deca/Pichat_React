@@ -49,22 +49,13 @@ class Login extends Component {
       <div className="login">
         <div className="container">
           <div className="row py-5 px-3">
-            <div className="col-md-9 col-sm-12 m-auto card p-4">
+            <div className="col-lg-6 col-md-9 col-sm-12 m-auto card p-4">
               <h3 className="text-center black-text">Login here</h3>
               {errors && (
                 <p className="text-center m-0  mt-2 p-2 red-text">
                   {errors.exception}
                 </p>
               )}
-              <div className="d-flex align-self-end">
-                <Link
-                  to="/account/password/forgot"
-                  className="blue-text m-0"
-                  onClick={forgot}
-                >
-                  forgot password?
-                </Link>
-              </div>
               <form onSubmit={this.onSubmit}>
                 <div className="md-form">
                   <i className="fa fa-envelope prefix grey-text py-2"></i>
@@ -102,15 +93,26 @@ class Login extends Component {
                     </div>
                   )}
                 </div>
-                <div className="row d-flex justify-content-between pt-2">
-                  <div className="col-md-4 col-lg-4">
-                    <input
-                      type="submit"
-                      value="log in"
-                      className="btn btn-lg btn-success btn-block p-3"
-                    />
+                <div className="">
+                  <div className="text-center py-3">
+                    <Link
+                      to="/account/password/forgot"
+                      className="blue-text m-0"
+                      onClick={forgot}
+                    >
+                      Forgot password?
+                    </Link>
                   </div>
-                  <div className="col-md-8 pt-3">
+                  <div className="row d-flex justify-content-center">
+                    <div className="col-lg-4">
+                      <input
+                        type="submit"
+                        value="log in"
+                        className="btn btn-lg btn-success btn-block p-2"
+                      />
+                    </div>
+                  </div>
+                  <div className="text-center pt-3">
                     <p>
                       Don't have an account?
                       <Link
@@ -118,7 +120,7 @@ class Login extends Component {
                         className="blue-text ml-1"
                         onClick={signup}
                       >
-                        Sign up
+                        Create Account
                       </Link>
                     </p>
                   </div>

@@ -15,6 +15,7 @@ export const ALL_COMMENTS = "ALL_COMMENTS";
 export const IS_ACTIVE = "IS_ACTIVE";
 export const GET_USER = "GET_USER";
 export const GET_SEARCHED_USERS = "GET_SEARCHED_USERS";
+export const IS_FOLLOWING = "IS_FOLLOWING";
 export const COUNT_FOLLOWERS = "COUNT_FOLLOWERS";
 export const COUNT_FOLLOWING = "COUNT_FOLLOWING";
 export const GET_FOLLOWERS = "GET_FOLLOWERS";

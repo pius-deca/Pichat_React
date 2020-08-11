@@ -114,13 +114,14 @@ class EditDetails extends Component {
       const request = e.target.files[0];
       const formData = new FormData();
       formData.append("file", request);
-
       trackPromise(this.props.uploadProfilePic(formData));
+      // this.setState({ loading: false });
     };
 
     const removePic = (e) => {
+      const pic = searchedUser.profilePic.profilePic;
       e.preventDefault();
-      trackPromise(this.props.removeProfilePic());
+      trackPromise(this.props.removeProfilePic(pic));
     };
 
     const uploadProfile = (

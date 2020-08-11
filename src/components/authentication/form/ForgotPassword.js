@@ -47,7 +47,7 @@ class ForgotPassword extends Component {
       <div className="login">
         <div className="container">
           <div className="row py-5 px-3">
-            <div className="col-md-9 col-sm-12 m-auto card p-4">
+            <div className="col-lg-6 col-md-9 col-sm-12 m-auto card p-4">
               <h3 className="diaplay-4 text-center black-text">
                 Forgot Password?
               </h3>
@@ -80,11 +80,11 @@ class ForgotPassword extends Component {
                   )}
                 </div>
                 <div className="row d-flex justify-content-center pt-2">
-                  <div className="col-md-4 col-lg-4">
+                  <div className="col-lg-6">
                     <input
                       type="submit"
-                      value="Send"
-                      className="btn btn-lg btn-block btn-success p-3"
+                      value="Send Password Reset Link"
+                      className="btn btn-lg btn-block btn-success p-2"
                     />
                   </div>
                 </div>

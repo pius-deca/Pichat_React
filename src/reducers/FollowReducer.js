@@ -3,9 +3,11 @@ import {
   COUNT_FOLLOWING,
   GET_FOLLOWERS,
   GET_FOLLOWING,
+  IS_FOLLOWING,
 } from "../actions/Types";
 
 const initialState = {
+  isFollowing: "",
   numOfFollowers: "",
   numOfFollowing: "",
   followers: [],
@@ -14,6 +16,11 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case IS_FOLLOWING:
+      return {
+        ...state,
+        isFollowing: action.payload,
+      };
     case COUNT_FOLLOWERS:
       return {
         ...state,

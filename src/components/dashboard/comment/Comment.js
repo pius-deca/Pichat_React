@@ -15,8 +15,8 @@ class Comment extends Component {
     const { allComments } = this.props.comment;
     const { errors } = this.props.errors;
 
-    const createdAt = (createdAt) => {
-      let timeCreated = moment(createdAt).fromNow();
+    const createdAt = (date) => {
+      let timeCreated = moment(date).fromNow();
       return timeCreated;
     };
 

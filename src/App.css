@@ -13,12 +13,23 @@
   transform: scale(1.1);
 } */
 
-.post-user-link {
-  width: 500px;
+.follow-link {
+  display: inline;
+}
+
+.btn {
+  text-transform: capitalize;
+}
+
+.users-display {
+  width: 350px;
+  max-height: 90vh;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
 }
 
 .post-user-link > .link-wrapper > .link > img {
-  width: 50px;
   height: 50px;
   border-radius: 50%;
 }
@@ -93,10 +104,6 @@
 .inputfile:focus + label {
   outline: 1px dotted #000;
   outline: -webkit-focus-ring-color auto 5px;
-}
-
-.search-dropdown {
-  border: none;
 }
 
 /* mobile setup */

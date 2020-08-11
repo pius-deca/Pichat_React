@@ -205,12 +205,11 @@ export const uploadProfilePic = (request) => async (dispatch) => {
   }
 };
 
-export const removeProfilePic = () => async (dispatch) => {
+export const removeProfilePic = (pic) => async (dispatch) => {
   try {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-    const profile = JSON.parse(localStorage.getItem("user_profile"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.delete(`/user/profile?pic=${profile.image_name}`, {
+    const res = await axios.delete(`/user/profile?pic=${pic}`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization,
@@ -220,7 +219,6 @@ export const removeProfilePic = () => async (dispatch) => {
       type: MESSAGE,
       payload: res.data.message,
     });
-    localStorage.removeItem("user_profile");
     window.location.reload(false);
   } catch (error) {
     dispatch({
