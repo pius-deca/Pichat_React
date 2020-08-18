@@ -229,7 +229,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-user prefix grey-text mt-5"></i>
+                  <i className="fa fa-user prefix black-text mt-5"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -249,7 +249,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-user prefix grey-text mt-5"></i>
+                  <i className="fa fa-user prefix black-text mt-5"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -269,7 +269,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-envelope prefix grey-text mt-5"></i>
+                  <i className="fa fa-envelope prefix black-text mt-5"></i>
                   <input
                     autoComplete="on"
                     type="text"
@@ -289,7 +289,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-user prefix grey-text mt-5"></i>
+                  <i className="fa fa-user prefix black-text mt-5"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -325,7 +325,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-pencil-square-o prefix grey-text mt-5"></i>
+                  <i className="fa fa-pencil-square-o prefix black-text mt-5"></i>
                   <div className="ml-5">
                     <textarea
                       autoComplete="off"
@@ -348,7 +348,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-calendar prefix grey-text mt-5"></i>
+                  <i className="fa fa-calendar prefix black-text mt-5"></i>
                   <div className="form-group ml-5">
                     <input
                       type="date"
@@ -386,7 +386,7 @@ class EditDetails extends Component {
                 <br />
                 <br />
                 <div>
-                  <i className="fa fa-mobile prefix grey-text mt-5"></i>
+                  <i className="fa fa-mobile prefix black-text mt-5"></i>
                   <div className="ml-5 input-group">
                     <IntlTelInput
                       containerClassName="intl-tel-input"

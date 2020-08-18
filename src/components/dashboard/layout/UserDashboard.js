@@ -17,6 +17,8 @@ import {
   countFollowing,
   countFollowers,
   checkFollowing,
+  reqToFollow,
+  reqToUnFollow,
 } from "../../../actions/FollowActions";
 import { UserPost } from "../post/UserPost";
 import { trackPromise } from "react-promise-tracker";
@@ -246,10 +248,14 @@ class UserDashboard extends Component {
     const userOfAccount = <div>{active}</div>;
 
     const follow = (e) => {
+      const req = searchedUser.username;
+      trackPromise(this.props.reqToFollow(req));
       console.log("request to follow sent...");
     };
 
     const unFollow = (e) => {
+      const req = searchedUser.username;
+      trackPromise(this.props.reqToUnFollow(req));
       console.log("request to unfollow sent...");
     };
 
@@ -373,6 +379,8 @@ UserDashboard.propTypes = {
   countPosts: PropTypes.func.isRequired,
   countFollowers: PropTypes.func.isRequired,
   countFollowing: PropTypes.func.isRequired,
+  reqToFollow: PropTypes.func.isRequired,
+  reqToUnFollow: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
   follow: PropTypes.object.isRequired,
@@ -399,4 +407,6 @@ export default connect(mapStateToProps, {
   checkFollowing,
   countFollowers,
   countFollowing,
+  reqToFollow,
+  reqToUnFollow,
 })(UserDashboard);

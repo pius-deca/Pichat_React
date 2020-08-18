@@ -4,7 +4,7 @@ export default class CountryField extends Component {
   render() {
     return (
       <div>
-        <i className="fa fa-flag prefix grey-text mt-5"></i>
+        <i className="fa fa-flag prefix black-text mt-5"></i>
         <div className="ml-5">
           <select
             id="country"

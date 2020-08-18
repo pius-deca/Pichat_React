@@ -34,16 +34,17 @@ export const reqToFollow = (username) => async (dispatch) => {
   try {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get(`/user/${username}/follower`, {
+    await axios.post(`/user/${username}/follow`, username, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization,
       },
     });
-    dispatch({
-      type: GET_FOLLOWERS,
-      payload: res.data.data,
-    });
+    window.location.reload(false);
+    // dispatch({
+    //   type: GET_FOLLOWERS,
+    //   payload: res.data.data,
+    // });
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
@@ -56,7 +57,7 @@ export const acceptReqToFollow = (username) => async (dispatch) => {
   try {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get(`/user/${username}/follow/accept`, {
+    const res = await axios.post(`/user/${username}/follow/accept`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization,
@@ -78,7 +79,7 @@ export const declineReqToFollow = (username) => async (dispatch) => {
   try {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get(`/user/${username}/follow/decline`, {
+    const res = await axios.post(`/user/${username}/follow/decline`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization,
@@ -100,16 +101,16 @@ export const reqToUnFollow = (username) => async (dispatch) => {
   try {
     const userDetails = JSON.parse(localStorage.getItem("userDetails"));
     const Authorization = `Bearer ${userDetails.token}`;
-    const res = await axios.get(`/user/${username}/unfollow`, {
+    const res = await axios.post(`/user/${username}/unfollow`, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         Authorization: Authorization,
       },
     });
-    dispatch({
-      type: GET_FOLLOWERS,
-      payload: res.data.data,
-    });
+    // dispatch({
+    //   type: GET_FOLLOWERS,
+    //   payload: res.data.data,
+    // });
   } catch (error) {
     dispatch({
       type: GET_ERRORS,

@@ -58,7 +58,7 @@ class Login extends Component {
               )}
               <form onSubmit={this.onSubmit}>
                 <div className="md-form">
-                  <i className="fa fa-envelope prefix grey-text py-2"></i>
+                  <i className="fa fa-envelope prefix black-text py-2"></i>
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {
@@ -76,7 +76,7 @@ class Login extends Component {
                   )}
                 </div>
                 <div className="md-form">
-                  <i className="fa fa-lock prefix grey-text py-2"></i>
+                  <i className="fa fa-lock prefix black-text py-2"></i>
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {

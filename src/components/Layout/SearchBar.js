@@ -32,7 +32,7 @@ class SearchBar extends Component {
 
     const dropdownForSearchedUser = (
       <div className="users-display p-0 m-0 shadow">
-        <Search allSearchedUsers={allSearchedUsers} />
+        <Search allSearchedUsers={allSearchedUsers} state={this.state.search} />
       </div>
     );
 
@@ -42,13 +42,13 @@ class SearchBar extends Component {
       allSearchedUsers.length > 0 ? dropdownForSearchedUser : noDropdown;
 
     const searchBar = (
-      <div className="row m-0 py-2">
-        <div className="nav-item col-md-6 col-sm-12 p-0">
+      <div className="row m-0 py-3">
+        <div className="col-md-6 col-sm-12 p-0 m-0">
           <form className="form-inline md-form m-0" onKeyUp={this.onKeyUp}>
             <i className="fas fa-search black-text" aria-hidden="true"></i>
             <input
               autoComplete="off"
-              className="form-control form-control-sm ml-3 black-text w-75"
+              className="form-control form-control-sm m-0 ml-3 black-text w-75"
               type="text"
               placeholder="Search people"
               aria-label="Search"
@@ -65,7 +65,7 @@ class SearchBar extends Component {
               X
             </button>
           </form>
-          <div>{dropdown}</div>
+          <div className="my-3">{dropdown}</div>
         </div>
       </div>
     );

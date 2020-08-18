@@ -94,7 +94,7 @@ class Password extends Component {
                   <br />
                   <br />
                   <div>
-                    <i className="fa fa-lock prefix grey-text mt-5"></i>
+                    <i className="fa fa-lock prefix black-text mt-5"></i>
                     <input
                       autoComplete="off"
                       type="password"
@@ -121,7 +121,7 @@ class Password extends Component {
                   <br />
                   <br />
                   <div>
-                    <i className="fa fa-lock prefix grey-text mt-5"></i>
+                    <i className="fa fa-lock prefix black-text mt-5"></i>
                     <input
                       autoComplete="off"
                       type="password"
@@ -148,7 +148,7 @@ class Password extends Component {
                   <br />
                   <br />
                   <div>
-                    <i className="fa fa-lock prefix grey-text mt-5"></i>
+                    <i className="fa fa-lock prefix black-text mt-5"></i>
                     <input
                       autoComplete="off"
                       type="password"

@@ -37,6 +37,7 @@ export const commentPost = (commentRequest, postId) => async (dispatch) => {
       type: COMMENT_POST,
       payload: res.data.data,
     });
+    window.location.reload(false);
   } catch (error) {}
 };
 

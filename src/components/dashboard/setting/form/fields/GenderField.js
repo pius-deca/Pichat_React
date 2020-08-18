@@ -4,7 +4,7 @@ class GenderField extends Component {
   render() {
     return (
       <div>
-        <i className="fa fa-user prefix grey-text mt-5"></i>
+        <i className="fa fa-user prefix black-text mt-5"></i>
         <div className="ml-5">
           <select
             className="form-control form-control-lg p-2 "

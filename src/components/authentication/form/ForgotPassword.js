@@ -56,13 +56,13 @@ class ForgotPassword extends Component {
                 back into your account.
               </p>
               {errors && (
-                <p className="text-center m-0  mt-2 p-2 red-text">
+                <p className="text-center m-0 mt-2 p-2 red-text">
                   {errors.exception}
                 </p>
               )}
               <form onSubmit={this.onSubmit}>
                 <div className="md-form">
-                  <i className="fa fa-envelope prefix grey-text py-2"></i>
+                  <i className="fa fa-envelope prefix black-text py-2"></i>
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {

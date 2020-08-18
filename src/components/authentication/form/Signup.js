@@ -56,16 +56,17 @@ class Signup extends Component {
           <div className="row py-5 px-3">
             <div className="col-lg-6 col-md-9 col-sm-12 m-auto card p-5">
               <h4 className="text-center black-text">
-                Sign up to see photos and videos from people all over the world.
+                Create an account to see photos and videos from people all over
+                the world.
               </h4>
               {errors && (
-                <p className="text-center m-0  mt-2 p-2 red-text">
+                <p className="text-center m-0 mt-2 p-2 red-text">
                   {errors.exception}
                 </p>
               )}
               <form onSubmit={this.onSubmit}>
                 <div className="md-form">
-                  <i className="fa fa-user prefix grey-text py-2"></i>
+                  <i className="fa fa-user prefix black-text py-2"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -84,7 +85,7 @@ class Signup extends Component {
                   )}
                 </div>
                 <div className="md-form">
-                  <i className="fa fa-user prefix grey-text py-2"></i>
+                  <i className="fa fa-user prefix black-text py-2"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -103,7 +104,7 @@ class Signup extends Component {
                   )}
                 </div>
                 <div className="md-form">
-                  <i className="fa fa-envelope prefix grey-text py-2"></i>
+                  <i className="fa fa-envelope prefix black-text py-2"></i>
                   <input
                     autoComplete="on"
                     type="text"
@@ -122,7 +123,7 @@ class Signup extends Component {
                   )}
                 </div>
                 <div className="md-form">
-                  <i className="fa fa-user prefix grey-text py-2"></i>
+                  <i className="fa fa-user prefix black-text py-2"></i>
                   <input
                     autoComplete="off"
                     type="text"
@@ -141,7 +142,7 @@ class Signup extends Component {
                   )}
                 </div>
                 <div className="md-form">
-                  <i className="fa fa-lock prefix grey-text py-2"></i>
+                  <i className="fa fa-lock prefix black-text py-2"></i>
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {

@@ -88,12 +88,12 @@ class Landing extends Component {
             </p>
           </div>
           <div className="row d-flex justify-content-center">
-            <div className="col-md-3 col-lg-3 py-2">
+            <div className="col-md-4 col-lg-4 py-2">
               <Link
                 to="/account/sign_up"
                 className="btn btn-lg btn-block btn-primary p-3"
               >
-                Sign Up
+                Create Account
               </Link>
             </div>
             <div className="col-md-3 col-lg-3 py-2">
@@ -101,7 +101,7 @@ class Landing extends Component {
                 to="/account/login"
                 className="btn btn-lg btn-block btn-secondary p-3"
               >
-                Login
+                Signin
               </Link>
             </div>
           </div>

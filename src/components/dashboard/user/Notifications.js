@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { isUserActive } from "../../../actions/UserActions";
 
-class Search extends React.Component {
+class Notifications extends React.Component {
   componentDidMount() {
     this.props.isUserActive();
   }
@@ -12,16 +12,6 @@ class Search extends React.Component {
   render() {
     const { allSearchedUsers, state } = this.props;
     const { isActive } = this.props.user;
-
-    const defaultPic =
-      "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg";
-
-    const src = (pic) => {
-      if (pic != null) {
-        return pic.url;
-      }
-      return defaultPic;
-    };
 
     const notActive = (
       <div>
@@ -56,13 +46,13 @@ class Search extends React.Component {
       </div>
     );
 
-    const searchIfActive = isActive ? active : notActive;
+    const notifications = isActive ? active : notActive;
 
-    return <div>{searchIfActive}</div>;
+    return <div>{notifications}</div>;
   }
 }
 
-Search.propTypes = {
+Notifications.propTypes = {
   user: PropTypes.object.isRequired,
   isUserActive: PropTypes.func.isRequired,
 };
@@ -71,4 +61,4 @@ const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-export default connect(mapStateToProps, { isUserActive })(Search);
+export default connect(mapStateToProps, { isUserActive })(Notifications);

@@ -73,52 +73,77 @@ class PostItem extends Component {
       return defaultPic;
     };
 
+    const activeBtn = (
+      <div className="form-group p-0 m-0 col-lg-3 col-md-3 col-sm-3">
+        <input
+          type="submit"
+          value="Comment"
+          className="btn btn-block btn-primary"
+        />
+      </div>
+    );
+
+    const notActiveBtn = (
+      <div className="form-group p-0 m-0 col-lg-3 col-md-3 col-sm-3">
+        <input
+          type="submit"
+          value="Comment"
+          className="btn btn-block btn-primary"
+          disabled
+        />
+      </div>
+    );
+
+    const commentBtn = this.state.comment === "" ? notActiveBtn : activeBtn;
+
     return (
-      <div className="post-item shadow rounded p-3">
-        {post.user && (
-          <div className="post-user-link mb-1">
-            <Link to={`/${post.user.username}`} className="link py-2">
-              <img src={src(post.user.profilePic)} alt="pic" className="mr-2" />
-              <p>{post.user.username}</p>
-            </Link>
-          </div>
-        )}
-        <div className="my-2">
-          <img
-            src={post.url}
-            alt="pic"
-            width="100%"
-            onDoubleClick={like}
-            name={post.post}
-          />
-        </div>
-        <div className="d-flex justify-content-between py-1">
-          <span>{numOflikes}</span>
-          <span className="">{timePosted}</span>
-        </div>
-        <div className="py-1">{post.caption}</div>
-        <Link className="py-1" to={`/post/${post.post}/comments`}>
-          {numComments}
-        </Link>
-        <form onSubmit={this.onSubmit} className="row p-2">
-          <div className="form-group p-0 col-lg-9 col-md-9 col-sm-9">
-            <textarea
-              className="form-control comment"
-              placeholder="Add a comment"
-              name="comment"
-              value={this.state.comment}
-              onChange={this.onChange}
-              id={post.post}
+      <div className="row d-flex justify-content-center">
+        <div className="col-lg-6 col-md-9 post-item shadow rounded p-3">
+          {post.user && (
+            <div className="link-wrapper mb-1">
+              <Link to={`/${post.user.username}`} className="link py-2">
+                <img
+                  src={src(post.user.profilePic)}
+                  alt="pic"
+                  className="mr-2"
+                />
+                <p className="black-text font-weight-bold">
+                  {post.user.username}
+                </p>
+              </Link>
+            </div>
+          )}
+          <div className="my-2 img-display">
+            <img
+              src={post.url}
+              alt="pic"
+              width="100%"
+              onDoubleClick={like}
+              name={post.post}
             />
           </div>
-          <div className="form-group p-0 m-0 col-lg-3 col-md-3 col-sm-3">
-            <input
-              type="submit"
-              value="Comment"
-              className="btn btn-block btn-primary"
-            />
+          <div className="d-flex justify-content-between py-1">
+            <span>{numOflikes}</span>
+            <span className="">{timePosted}</span>
           </div>
-        </form>
+          <div className="py-1">{post.caption}</div>
+          <Link className="py-1" to={`/post/${post.post}/comments`}>
+            {numComments}
+          </Link>
+          <form onSubmit={this.onSubmit} className="row p-2">
+            <div className="form-group p-0 col-lg-9 col-md-9 col-sm-9">
+              <textarea
+                className="form-control comment"
+                placeholder="Add a comment"
+                name="comment"
+                value={this.state.comment}
+                onChange={this.onChange}
+                id={post.post}
+              />
+            </div>
+            {commentBtn}
+          </form>
+        </div>
       </div>
     );
   }

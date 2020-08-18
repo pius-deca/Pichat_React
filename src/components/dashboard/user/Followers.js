@@ -46,15 +46,31 @@ class Followers extends React.Component {
       </button>
     );
 
-    const canFollow = () => {
-      if (isActive) {
-        return followAccount;
+    // const canFollow = (followingBack) => {
+    //   if (isActive) {
+    //     if (followingBack.equalsIgnoreCase("true")) {
+    //       return unFollowAccount;
+    //     } else if (followingBack.equalsIgnoreCase("requested")) {
+    //       return "Request sent to follow";
+    //     } else if (followingBack.equalsIgnoreCase("false")) {
+    //       return followAccount;
+    //     }
+    //   }
+    // };
+
+    const defaultPic =
+      "https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg";
+
+    const src = (pic) => {
+      if (pic != null) {
+        return pic.url;
       }
-      return unFollowAccount;
+      return defaultPic;
     };
 
     const allFollowers = (
       <div>
+        <h5 className="p-3 m-0">Followers</h5>
         {followers.map((follower) => (
           <div
             className="d-flex justify-content-between post-user-link p-3"
@@ -68,14 +84,16 @@ class Followers extends React.Component {
                 }
                 className="link py-2"
               >
-                <img src="" alt="hi" className="mr-3" />
+                <img
+                  src={src(follower.user.profilePic)}
+                  alt="hi"
+                  className="mr-3"
+                />
                 <p>{follower.user.username}</p>
               </Link>
             </div>
-            <div>{canFollow(follower.accepted, follower.followingBack)}</div>
           </div>
         ))}
-        <div className="dropdown-divider m-0"></div>
       </div>
     );
 
@@ -107,8 +125,8 @@ class Followers extends React.Component {
     const display = followers.length < 1 ? "No followers" : allFollowers;
 
     return (
-      <div className="container py-4">
-        <div className="shadow rounded p-3">{display}</div>
+      <div className="container">
+        <div className="white shadow rounded p-2">{display}</div>
       </div>
     );
   }

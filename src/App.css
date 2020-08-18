@@ -1,3 +1,9 @@
+body {
+  background-image: url(./images/cool-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .user-posts > .link > img {
   width: 30%;
   height: 250px;
@@ -21,20 +27,37 @@
   text-transform: capitalize;
 }
 
+.notify-icon {
+  border-radius: 50%;
+}
+
 .users-display {
-  width: 350px;
+  width: 400px;
   max-height: 90vh;
   position: absolute;
   z-index: 1;
   background-color: white;
 }
 
-.post-user-link > .link-wrapper > .link > img {
+.img-display {
+  width: 100%;
+  height: 55vh;
+  background-color: black;
+  text-align: center;
+}
+
+.img-display > img {
+  width: 100%;
+  height: 100%;
+}
+
+.link-wrapper > .link > img {
   height: 50px;
+  width: 55px;
   border-radius: 50%;
 }
 
-.post-user-link > .link-wrapper > .link > p {
+.link-wrapper > .link > p {
   display: inline;
 }
 
@@ -123,7 +146,26 @@
   border-bottom-right-radius: 0;
 }
 
+.nav-layered {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-layered::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.021);
+}
+
 @media only screen and (max-width: 766px) {
+  .navbar-nav .nav-item {
+    margin: 0px 0px 0px 1rem;
+  }
+
   .footer-links > .link {
     display: block;
     padding: 10px;

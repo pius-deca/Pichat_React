@@ -30,7 +30,7 @@ class Home extends Component {
 
     const posts = allPosts.empty ? emptyPosts : notEmptyPosts;
 
-    return <div className="container pt-4">{posts}</div>;
+    return <div className="container">{posts}</div>;
   }
 }
 
