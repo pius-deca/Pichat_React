@@ -11,7 +11,7 @@
     "jwt-decode": "^2.2.0",
     "mdbootstrap": "^4.19.0",
     "mdbreact": "^4.27.0",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
